@@ -36,7 +36,7 @@
             $op = mysqli_query($con, $sql);
             echo mysqli_num_rows($op);
 
-            if (mysqli_num_rows($op) == 1){
+            if (mysqli_num_rows($op) > 1){
                 $data = mysqli_fetch_assoc($op);
                 $_SESSION['user'] = $data;
                 header("Location: index.php");
