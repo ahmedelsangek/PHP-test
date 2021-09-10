@@ -217,7 +217,7 @@
         //Static Function => function can class it direct with class name
         public static function PrintMessage()
         {
-            echo "Ahmed Magdy";
+            // echo "Ahmed Magdy";
         }
 
         abstract function Print();
@@ -239,4 +239,33 @@
 
     // $obj = new UsersChild("Ahmed Magdy", "Ahmed@yahoo.com");
     // $obj->PrintMessage();
+
+
+
+
+    //Overloading in PHP
+    class CalculateArea
+    {
+        public function __Call($name, $arg)
+        {
+            if ($name == "Area") {
+                switch (count($arg)) {
+                    case 1:
+                        return 3.14 * $arg[0] * $arg[0];
+                        break;
+
+                    case 2:
+                        return 3.14 * $arg[0] * $arg[1];
+                        break;
+                }
+            }
+        }
+    }
+
+
+    $obj = new CalculateArea();
+    echo "Circle Area => " . $obj->Area(2);
+    echo "Rectangle Area => " . $obj->Area(2,3);
+
+
 ?>
